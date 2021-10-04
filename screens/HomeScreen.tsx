@@ -9,7 +9,7 @@ import field from '../assets/images/field.jpg';
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
   return (
     <View style={tw`flex flex-1 items-center justify-center`}>
-        <ImageBackground source={field} style={{width: '100%', height: "100%"}} resizeMode="cover">
+        <ImageBackground source={field} style={{width: '100%', height: "100%"}} resizeMode="contain">
 
         </ImageBackground>
     </View>
