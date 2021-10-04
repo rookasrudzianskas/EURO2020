@@ -6,6 +6,13 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import HomeScreen from "./screens/HomeScreen";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,8 +23,12 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
+
+        <RecoilRoot>
     {/*// @ts-ignore*/}
-        <HomeScreen />
+          <HomeScreen />
+        </RecoilRoot>
+
         <StatusBar />
       </SafeAreaProvider>
     );

@@ -12,6 +12,7 @@ import {useCallback, useMemo, useRef} from "react";
 import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
 import {players} from "../assets/data/players";
 import Filters from '../components/Filters/Filters';
+import PlayersList from "../components/PlayersList/PlayersList";
 
 
 
@@ -84,10 +85,7 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                     </TouchableOpacity>
                     </View>
                         {/*@ts-ignore*/}
-                        <BottomSheetFlatList data={players} renderItem={({item}) => (
-                        // @ts-ignore
-                            <PlayerListItem key={item.id} player={item}/>
-                        )} />
+                        <PlayersList />
                 </View>
             </BottomSheet>
 
