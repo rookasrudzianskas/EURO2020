@@ -9,6 +9,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import TeamStats from "../components/TeamStats/TeamStats";
 import BottomSheet from "@gorhom/bottom-sheet";
 import {useCallback, useMemo, useRef} from "react";
+import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
 
 
 
@@ -65,8 +66,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                 snapPoints={snapPoints}
                 onChange={handleSheetChanges}
             >
-                <View style={{flex: 1, alignItems: 'center'}}>
-                    <Text>Awesome 🎉</Text>
+                <View style={{flex: 1}}>
+                    <View>
+                        <PlayerListItem />
+                    </View>
                 </View>
             </BottomSheet>
 
