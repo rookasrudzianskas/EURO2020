@@ -4,6 +4,7 @@ import tw from "tailwind-react-native-classnames";
 // @ts-ignore
 import field from "../../assets/images/field.jpg";
 import {FontAwesome5} from "@expo/vector-icons";
+import FieldPlayer from "../FieldPlayer/FieldPlayer";
 
 const players: {[key: string]: null[]} = {
     FWD: [null, null, null],
@@ -21,10 +22,7 @@ const Field = () => {
                             {/*// @ts-ignore*/}
                             {players[position].map((player) => (
                             <TouchableOpacity activeOpacity={0.8}>
-                                <View key={player} style={tw`flex items-center justify-center`}>
-                                    <FontAwesome5 name="tshirt" size={35} color={player ? "#d170db" : "#5c5c5cbb"} />
-                                    <Text style={{backgroundColor: '#333333bb', color: 'white', fontWeight: 'bold', padding: 2, paddingHorizontal: 7, fontSize: 12}}>{position}</Text>
-                                </View>
+                                <FieldPlayer />
                             </TouchableOpacity>
                             ))}
                         </View>
