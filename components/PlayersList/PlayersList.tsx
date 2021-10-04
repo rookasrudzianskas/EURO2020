@@ -1,17 +1,20 @@
 import React from 'react';
-import {View} from "react-native";
-import {players} from "../../assets/data/players";
+import {View, Text} from "react-native";
 import PlayerListItem from "../PlayerListItem/PlayerListItem";
 import {BottomSheetFlatList} from "@gorhom/bottom-sheet";
+import {allPlayersState} from "../../atoms/Players";
+import {useRecoilState} from "recoil";
 
 const PlayersList = () => {
+    const [players, setPlayers] = useRecoilState(allPlayersState);
     return (
-        <View>
+        <>
             <BottomSheetFlatList data={players} renderItem={({item}) => (
                 // @ts-ignore
                 <PlayerListItem key={item.id} player={item}/>
+
             )} />
-        </View>
+        </>
     );
 };
 
