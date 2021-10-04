@@ -2,13 +2,18 @@ import React from 'react';
 import {View, Text, Image} from "react-native";
 import tw from "tailwind-react-native-classnames";
 import {Feather, Ionicons} from "@expo/vector-icons";
+import {Player} from "../../types";
 
-const PlayerListItem = () => {
+interface Props {
+    player: Player;
+}
+
+const PlayerListItem = ({player}: Props) => {
     return (
-        <View style={tw`mx-6`}>
-            <View>
+        <View style={tw`mx-6 border-b-2 border-gray-200`}>
+            <View style={tw`mb-3`}>
                 <View style={tw`flex flex-row items-center`}>
-                    <View style={tw`p-3 border-r-2 border-gray-300`}>
+                    <View style={tw`p-3 border-r-2 border-gray-200`}>
                         <Feather name="info" size={24} color="blue" />
                     </View>
                     <View style={tw` ml-2 mr-1`}>
@@ -16,17 +21,17 @@ const PlayerListItem = () => {
                     {/*<Image source={{uri: 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f5be112e7f395dc08ef8e58%2FLionel-Messi-celebrating-scoring-a-goal-in-the-2019-20-UEFA-Champions-League%2F1960x0.jpg%3Ffit%3Dscale'}} />*/}
                     </View>
                     <View style={tw`flex ml-2 flex-1`}>
-                        <Text style={tw` text-lg font-bold`}>C. Ronaldo</Text>
-                        <Text style={tw` text-sm`}>GSD vs SJD</Text>
+                        <Text style={tw` text-lg font-bold`}>{player?.name}</Text>
+                        <Text style={tw` text-sm`}>{player?.match}</Text>
                     </View>
 
                     <View style={tw`flex`}>
-                        <Text style={tw`text-lg font-bold`}>$10.1</Text>
-                        <Text style={tw`text-right`}>MID</Text>
+                        <Text style={tw`text-lg font-bold`}>${player?.price}</Text>
+                        <Text style={tw`text-right`}>{player?.position}</Text>
                     </View>
 
                     <View style={tw`flex`}>
-                        <Text style={tw`mx-5 text-lg font-bold`}>29</Text>
+                        <Text style={tw`mx-5 text-lg font-bold`}>{player?.totalPoints}</Text>
                     </View>
                 </View>
             </View>
