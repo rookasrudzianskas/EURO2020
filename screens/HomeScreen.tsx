@@ -8,10 +8,11 @@ import field from '../assets/images/field.jpg';
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
   return (
-    <View style={tw`flex flex-1 items-center justify-center`}>
-        <ImageBackground source={field} style={{width: '100%', aspectRatio: 2/3}} resizeMode="contain">
-
-        </ImageBackground>
+    <View style={[{backgroundColor: '#4CCF4D'},tw`flex flex-1 items-center`]}>
+        <View style={tw`mt-8`}>
+            <ImageBackground source={field} style={{width: '100%', aspectRatio: 2/3, backgroundColor: '#4CCF4D'}} resizeMode="contain">
+            </ImageBackground>
+        </View>
     </View>
   );
 }
