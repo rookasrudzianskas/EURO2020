@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { Text, View, ImageBackground } from '../components/Themed';
+import {ImageBackground, StyleSheet} from 'react-native';
+import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import tw from "tailwind-react-native-classnames";
+// @ts-ignore
 import field from '../assets/images/field.jpg';
 
-export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
   return (
     <View style={tw`flex flex-1 items-center justify-center`}>
         <ImageBackground source={field} style={{width: '100%', height: 200}}>
@@ -16,3 +17,6 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>)
 }
 
 
+
+
+export default HomeScreen;
