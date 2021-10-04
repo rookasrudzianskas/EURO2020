@@ -4,7 +4,6 @@ import { RootTabScreenProps } from '../types';
 import tw from "tailwind-react-native-classnames";
 // @ts-ignore
 import field from '../assets/images/field.jpg';
-import {FontAwesome5} from "@expo/vector-icons";
 import Field from "../components/Field/Field";
 
 
