@@ -3,8 +3,12 @@ import {Text, View} from "react-native";
 import tw from "tailwind-react-native-classnames";
 import {FontAwesome5} from "@expo/vector-icons";
 
+type FieldPlayerProps = {
+    player: null,
+    position: string,
+}
 
-const FieldPlayer = ({position, player}) => {
+const FieldPlayer = ({position, player}: FieldPlayerProps) => {
     return (
         <View style={tw``}>
             <View key={player} style={tw`flex items-center justify-center`}>
