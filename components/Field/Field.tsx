@@ -22,7 +22,7 @@ const Field = () => {
                             {/*// @ts-ignore*/}
                             {players[position].map((player) => (
                             <TouchableOpacity activeOpacity={0.8}>
-                                <FieldPlayer />
+                                <FieldPlayer player={player} position={position} />
                             </TouchableOpacity>
                             ))}
                         </View>

@@ -5,7 +5,7 @@ import {FontAwesome5} from "@expo/vector-icons";
 
 
 
-const FieldPlayer = () => {
+const FieldPlayer = ({position, player}) => {
     return (
         <View style={tw``}>
             <View key={player} style={tw`flex items-center justify-center`}>
