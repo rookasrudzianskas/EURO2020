@@ -18,9 +18,18 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
     return (
         <View style={[{backgroundColor: '#4CCF4D'},tw`flex flex-1 items-center`]}>
-            <View style={tw`mt-10`}>
-                <TeamStats />
+            <View style={tw`bg-blue-500 w-full`}>
+                <View style={tw`mt-10 flex items-center`}>
+            {/*<ImageBackground source={{uri: 'https://ico.li/wp-content/uploads/2020/02/uefa-euro-2020-abstract-background-759x499.jpg'}>*/}
+                    <View style={tw`mt-3`}>
+                        <Text style={tw`text-xl text-gray-100 font-bold`}>Pick your players</Text>
+                    </View>
+                    <View style={tw`mb-4`}>
+                    <TeamStats />
+                    </View>
+                </View>
             </View>
+            {/*</ImageBackground>*/}
             <View style={tw` flex flex-1`}>
                 <Field />
             </View>
