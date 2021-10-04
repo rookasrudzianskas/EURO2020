@@ -14,8 +14,8 @@ import {useCallback, useMemo, useRef} from "react";
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
-    // const bottomSheetRef = useRef<BottomSheet>(null);
-    const snapPoints = useMemo(() => ['25%', '50%'], []);
+    const bottomSheetRef = useRef<BottomSheet>(null);
+    const snapPoints = useMemo(() => [0, '50%'], []);
 
     const handleSheetChanges = useCallback((index: number) => {
         console.log('handleSheetChanges', index);
@@ -23,7 +23,8 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
 
     const viewPlayers = () => {
-        console.warn("DONE");
+        // console.warn("DONE");
+        bottomSheetRef?.current?.expand();
     }
 
     return (
@@ -59,7 +60,8 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
             </View>
 
             <BottomSheet
-                index={1}
+                ref={bottomSheetRef}
+                index={0}
                 snapPoints={snapPoints}
                 onChange={handleSheetChanges}
             >
