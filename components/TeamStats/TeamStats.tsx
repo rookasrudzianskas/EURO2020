@@ -6,19 +6,19 @@ const TeamStats = () => {
     return (
         <View style={[tw`flex flex-row bg-gray-100 mt-4 w-full px-48 py-5 rounded-md border-4 border-blue-400`]}>
             <View style={tw`flex`}>
-                <View style={tw`-ml-36`}>
-                    <Text>Players</Text>
+                <View style={tw`-ml-40`}>
+                    <Text style={tw`text-gray-500`}>Players</Text>
                 </View>
-                <View style={tw`-ml-36`}>
-                    <Text>0/ 15</Text>
+                <View style={tw`-ml-40`}>
+                    <Text style={tw`text-gray-900 text-xl font-bold`}>0/ 15</Text>
                 </View>
             </View>
             <View style={tw`flex`}>
                 <View style={tw`-ml-20`}>
-                    <Text>Remaining</Text>
+                    <Text style={tw`text-gray-500`}>Remaining</Text>
                 </View>
                 <View style={tw`-ml-20`}>
-                    <Text>$100m</Text>
+                    <Text style={tw`text-gray-900 text-xl font-bold`}>$100m</Text>
                 </View>
             </View>
         </View>
