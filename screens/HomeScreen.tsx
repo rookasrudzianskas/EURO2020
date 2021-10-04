@@ -15,10 +15,10 @@ import {useCallback, useMemo, useRef} from "react";
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
     const bottomSheetRef = useRef<BottomSheet>(null);
-    const snapPoints = useMemo(() => [0, '50%'], []);
+    const snapPoints = useMemo(() => [0, '60%'], []);
 
     const handleSheetChanges = useCallback((index: number) => {
-        console.log('handleSheetChanges', index);
+        // console.log('handleSheetChanges', index);
     }, []);
 
 
