@@ -5,6 +5,12 @@ import { RootTabScreenProps } from '../types';
 import tw from "tailwind-react-native-classnames";
 // @ts-ignore
 import field from '../assets/images/field.jpg';
+const players = {
+    FWD: [],
+    MID: [],
+    DEF: [],
+    GKC: [],
+}
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
   return (
