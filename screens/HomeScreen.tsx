@@ -4,6 +4,7 @@ import { RootTabScreenProps } from '../types';
 import tw from "tailwind-react-native-classnames";
 // @ts-ignore
 import field from '../assets/images/field.jpg';
+import {FontAwesome5} from "@expo/vector-icons";
 const players: {[key: string]: null[]} = {
     FWD: [null, null, null],
     MID: [null, null, null],
@@ -20,7 +21,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                         <View key={position} style={[{justifyContent: 'space-around', width: '100%'},tw`flex flex-row`]}>
                             {/*// @ts-ignore*/}
                             {players[position].map((player) => (
-                                <Text>Player</Text>
+                                <View style={tw`flex items-center justify-center`}>
+                                    <FontAwesome5 name="tshirt" size={24} color={player ? "#d170db" : "#5c5c5cbb"} />
+                                    <Text>{position}</Text>
+                                </View>
                             ))}
                         </View>
                     ))}
