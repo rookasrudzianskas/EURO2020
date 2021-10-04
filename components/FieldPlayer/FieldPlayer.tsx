@@ -4,7 +4,6 @@ import tw from "tailwind-react-native-classnames";
 import {FontAwesome5} from "@expo/vector-icons";
 
 
-
 const FieldPlayer = ({position, player}) => {
     return (
         <View style={tw``}>
