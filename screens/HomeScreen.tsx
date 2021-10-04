@@ -7,7 +7,7 @@ import field from '../assets/images/field.jpg';
 import Field from "../components/Field/Field";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import TeamStats from "../components/TeamStats/TeamStats";
-import BottomSheet from "@gorhom/bottom-sheet";
+import BottomSheet, {BottomSheetFlatList} from "@gorhom/bottom-sheet";
 import {useCallback, useMemo, useRef} from "react";
 import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
 import {players} from "../assets/data/players";
@@ -71,7 +71,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                 <View style={{flex: 1}}>
                     <View>
                         {/*@ts-ignore*/}
-                        <PlayerListItem  player={players[1]}/>
+                        {/*<PlayerListItem  player={players[1]}/>*/}
+                        <BottomSheetFlatList data={players} renderItem={({}) => (
+
+                        )} />
                     </View>
                 </View>
             </BottomSheet>
