@@ -21,7 +21,7 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                 <Field />
             </View>
 
-        <View style={tw`flex flex-row items-center mb-16`}>
+        <View style={tw`flex flex-row items-center mb-10`}>
             <TouchableOpacity activeOpacity={0.8} onPress={viewPlayers}>
                 <View style={tw`bg-yellow-500 px-24 py-4 flex flex-1 rounded-full border-2 border-yellow-600`}>
                     <Text style={tw`text-xl font-bold`}>View Players</Text>
