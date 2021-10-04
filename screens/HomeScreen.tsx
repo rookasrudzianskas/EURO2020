@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, TouchableOpacity, View, FlatList} from 'react-native';
 import { RootTabScreenProps } from '../types';
 import tw from "tailwind-react-native-classnames";
 // @ts-ignore
@@ -11,12 +11,14 @@ import BottomSheet, {BottomSheetFlatList} from "@gorhom/bottom-sheet";
 import {useCallback, useMemo, useRef} from "react";
 import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
 import {players} from "../assets/data/players";
+import Filters from '../components/Filters/Filters';
 
 
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
     const bottomSheetRef = useRef<BottomSheet>(null);
+    const filtersBottomSheet = useRef<BottomSheet>(null);
     const snapPoints = useMemo(() => [0, '60%'], []);
 
     const handleSheetChanges = useCallback((index: number) => {
@@ -27,6 +29,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
     const viewPlayers = () => {
         // console.warn("DONE");
         bottomSheetRef?.current?.expand();
+    }
+
+    const openFilters = () => {
+        filtersBottomSheet?.current?.expand();
     }
 
     // @ts-ignore
@@ -69,13 +75,29 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                 onChange={handleSheetChanges}
             >
                 <View style={{flex: 1}}>
-                    <View>
-                        {/*@ts-ignore*/}
-                        {/*<PlayerListItem  player={players[1]}/>*/}
-                        <BottomSheetFlatList data={players} renderItem={({}) => (
 
-                        )} />
+                    <View style={tw`mx-5 mb-2`}>
+                    <TouchableOpacity activeOpacity={0.8} onPress={openFilters}>
+                        <View style={tw`bg-blue-500 w-36 flex items-center px-2 py-1 rounded-full border-2 border-blue-600`}>
+                            <Text style={tw`text-xl text-white`}>Add Filters</Text>
+                        </View>
+                    </TouchableOpacity>
                     </View>
+                        {/*@ts-ignore*/}
+                        <BottomSheetFlatList data={players} renderItem={({item}) => (
+                        // @ts-ignore
+                            <PlayerListItem key={item.id} player={item}/>
+                        )} />
+                </View>
+            </BottomSheet>
+
+            <BottomSheet
+                ref={filtersBottomSheet}
+                snapPoints={snapPoints}
+            >
+
+                <View style={{flex: 1}}>
+                    <Filters />
                 </View>
             </BottomSheet>
 
