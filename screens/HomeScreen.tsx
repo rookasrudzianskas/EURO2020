@@ -6,6 +6,7 @@ import tw from "tailwind-react-native-classnames";
 import field from '../assets/images/field.jpg';
 import Field from "../components/Field/Field";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+import TeamStats from "../components/TeamStats/TeamStats";
 
 
 
@@ -17,23 +18,26 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
 
     return (
         <View style={[{backgroundColor: '#4CCF4D'},tw`flex flex-1 items-center`]}>
-            <View style={tw`mt-8 flex flex-1`}>
+            <View style={tw`mt-10`}>
+                <TeamStats />
+            </View>
+            <View style={tw` flex flex-1`}>
                 <Field />
             </View>
 
-        <View style={tw`flex flex-row items-center mb-10`}>
-            <TouchableOpacity activeOpacity={0.8} onPress={viewPlayers}>
-                <View style={tw`bg-yellow-500 px-24 py-4 flex flex-1 rounded-full border-2 border-yellow-600`}>
-                    <Text style={tw`text-xl font-bold`}>View Players</Text>
-                </View>
-            </TouchableOpacity>
+            <View style={tw`flex flex-row items-center mb-10`}>
+                <TouchableOpacity activeOpacity={0.8} onPress={viewPlayers}>
+                    <View style={tw`bg-yellow-500 px-24 py-4 flex flex-1 rounded-full border-2 border-yellow-600`}>
+                        <Text style={tw`text-xl font-bold`}>View Players</Text>
+                    </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={0.8}>
-                <View style={tw`bg-yellow-500 ml-5 p-4 rounded-full border-2 border-yellow-600`}>
-                    <MaterialCommunityIcons name="fire" size={24} color="black" />
-                </View>
-            </TouchableOpacity>
-        </View>
+                <TouchableOpacity activeOpacity={0.8}>
+                    <View style={tw`bg-yellow-500 ml-5 p-4 rounded-full border-2 border-yellow-600`}>
+                        <MaterialCommunityIcons name="fire" size={24} color="black" />
+                    </View>
+                </TouchableOpacity>
+            </View>
 
         </View>
   );
