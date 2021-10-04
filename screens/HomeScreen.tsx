@@ -6,10 +6,10 @@ import tw from "tailwind-react-native-classnames";
 // @ts-ignore
 import field from '../assets/images/field.jpg';
 const players = {
-    FWD: [],
-    MID: [],
-    DEF: [],
-    GKC: [],
+    FWD: [null, null, null],
+    MID: [null, null, null],
+    DEF: [null, null, null, null],
+    GKC: [null],
 }
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
