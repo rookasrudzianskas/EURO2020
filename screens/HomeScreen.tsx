@@ -13,12 +13,17 @@ const players = {
 }
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
-  return (
+    return (
     <View style={[{backgroundColor: '#4CCF4D'},tw`flex flex-1 items-center`]}>
         <View style={tw`mt-8`}>
             <ImageBackground source={field} style={{width: '100%', aspectRatio: 2/3, backgroundColor: '#4CCF4D', justifyContent: 'space-around', alignItems: 'center'}} resizeMode="contain">
                 {Object.keys(players).map(position => (
-                    <Text key={position}>{position}</Text>
+                    <View key={position} style={tw`flex flex-row`}>
+  {/*// @ts-ignore*/}
+                        {players[position].map((player) => (
+                            <Text>Player</Text>
+                        ))}
+                    </View>
                 ))}
             </ImageBackground>
         </View>
