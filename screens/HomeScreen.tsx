@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
         <View style={tw`mt-8`}>
             <ImageBackground source={field} style={{width: '100%', aspectRatio: 2/3, backgroundColor: '#4CCF4D', justifyContent: 'space-around', alignItems: 'center'}} resizeMode="contain">
                 {Object.keys(players).map(position => (
-                    <View key={position} style={tw`flex flex-row`}>
+                    <View key={position} style={[{justifyContent: 'space-between'},tw`flex flex-row`]}>
   {/*// @ts-ignore*/}
                         {players[position].map((player) => (
                             <Text>Player</Text>
