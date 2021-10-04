@@ -17,8 +17,17 @@ const PlayerListItem = ({player}: Props) => {
                         <Feather name="info" size={24} color="blue" />
                     </View>
                     <View style={tw` ml-2 mr-1`}>
-                        <Ionicons name="football" size={30} color="black" />
-                    {/*<Image source={{uri: 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f5be112e7f395dc08ef8e58%2FLionel-Messi-celebrating-scoring-a-goal-in-the-2019-20-UEFA-Champions-League%2F1960x0.jpg%3Ffit%3Dscale'}} />*/}
+                        {/*<Ionicons name="football" size={30} color="black" />*/}
+                    <Image  source={{
+                        uri: `https://media.api-sports.io/football/players/${player.id}.png`,
+                    }} style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 20,
+                        borderWidth: 2,
+                        borderColor: "#ddd",
+                        marginRight: 10,
+                    }} />
                     </View>
                     <View style={tw`flex ml-2 flex-1`}>
                         <Text style={tw` text-lg font-bold`}>{player?.name}</Text>
@@ -26,7 +35,7 @@ const PlayerListItem = ({player}: Props) => {
                     </View>
 
                     <View style={tw`flex`}>
-                        <Text style={tw`text-lg font-bold`}>${player?.price}</Text>
+                        <Text style={tw`text-lg font-bold`}>${(player?.price  / 1_000_000).toFixed(1)}m</Text>
                         <Text style={tw`text-right`}>{player?.position}</Text>
                     </View>
 

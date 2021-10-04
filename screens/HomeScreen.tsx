@@ -10,6 +10,7 @@ import TeamStats from "../components/TeamStats/TeamStats";
 import BottomSheet from "@gorhom/bottom-sheet";
 import {useCallback, useMemo, useRef} from "react";
 import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
+import {players} from "../assets/data/players";
 
 
 
@@ -28,6 +29,7 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
         bottomSheetRef?.current?.expand();
     }
 
+    // @ts-ignore
     return (
         <View style={[{backgroundColor: '#4CCF4D'},tw`flex flex-1 items-center`]}>
             <View style={tw`bg-blue-500 w-full`}>
@@ -68,7 +70,8 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
             >
                 <View style={{flex: 1}}>
                     <View>
-                        <PlayerListItem />
+                        {/*@ts-ignore*/}
+                        <PlayerListItem  player={players[1]}/>
                     </View>
                 </View>
             </BottomSheet>
