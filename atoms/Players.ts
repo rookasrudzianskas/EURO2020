@@ -11,7 +11,18 @@ const pos2pos = {
 export const allPlayersState = selector({
     key: 'allPlayersState',
     get: async () => {
-        return response.response.map((entry) => ({
+        const response = await fetch("https://api-football-v1.p.rapidapi.com/v3/players?league=4&season=2020", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+                "x-rapidapi-key": "dea5310136msh3f59c4dcecedff3p1e01b8jsndffe742e9b8d"
+            }
+        });
+
+        const json = await response.json();
+
+        // @ts-ignore
+        return json.response.map((entry) => ({
             id: entry.player.id,
             name: entry.player.name,
             match: 'SDA',
