@@ -1,4 +1,4 @@
-import {atom} from "recoil";
+import {atom, selector} from "recoil";
 import {players} from "../assets/data/players";
 
 export const allPlayersState = atom({
@@ -8,5 +8,14 @@ export const allPlayersState = atom({
 
 export const positionFilterState = atom({
     key: 'positionFilterState',
-    default: [],
+    default: [] as string[],
 });
+
+export const filteredPlayers = selector({
+    key: 'filterPlayers',
+    get: ({get}) => {
+        const players = get(allPlayersState);
+        const filters = get(positionFilterState);
+        return players.filter(player => filters.includes(player.position));
+    }
+})
