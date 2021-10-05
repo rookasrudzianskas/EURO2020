@@ -1,6 +1,7 @@
 import {atom, selector} from "recoil";
 import {players} from "../assets/data/players";
 
+
 export const allPlayersState = atom({
     key: 'allPlayersState',
     default: players,
@@ -20,4 +21,5 @@ export const filteredPlayers = selector({
     //    if no filters selected, I see all of them
     }
 
-})
+});
+

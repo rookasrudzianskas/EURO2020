@@ -3,8 +3,8 @@ import {View, Text, Image, TouchableOpacity} from "react-native";
 import tw from "tailwind-react-native-classnames";
 import {Feather, Ionicons} from "@expo/vector-icons";
 import {Player} from "../../types";
-import {useRecoilState} from "recoil";
-import {MyPlayersState} from "../../atoms/MyTeam";
+import {useRecoilState, useRecoilValue} from "recoil";
+import {myFormationState, myPlayersState} from "../../atoms/MyTeam";
 
 
 interface Props {
@@ -15,16 +15,24 @@ interface Props {
 
 const PlayerListItem = ({player}: Props) => {
 
-    const [myPlayers, setMyPlayers] = useRecoilState(MyPlayersState);
+    const [myPlayers, setMyPlayers] = useRecoilState(myPlayersState);
+    const myFormation = useRecoilValue(myFormationState);
+
+    const numberOfPlayersOnPos = myPlayers.filter(p => p.position === player.position).length;
 
     const onPress = () => {
         setMyPlayers((curPlayers) => {
             if(myPlayers.some((p) => p.id === player.id)) {
-            //    remove the player
+                //    remove the player
                 return curPlayers.filter(p => p.id !== player.id);
             } else {
-                return [...curPlayers, player]
+                // check if it is possible to add ,then add it,
 
+                if(numberOfPlayersOnPos < myFormation[player.position]){
+                    return [...curPlayers, player];
+                }
+
+                return curPlayers;
             }
         });
     }
@@ -41,16 +49,16 @@ const PlayerListItem = ({player}: Props) => {
                     </View>
                     <View style={tw` ml-2 mr-1`}>
                         {/*<Ionicons name="football" size={30} color="black" />*/}
-                    <Image  source={{
-                        uri: `https://media.api-sports.io/football/players/${player.id}.png`,
-                    }} style={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: 20,
-                        borderWidth: 2,
-                        borderColor: "#ddd",
-                        marginRight: 10,
-                    }} />
+                        <Image  source={{
+                            uri: `https://media.api-sports.io/football/players/${player.id}.png`,
+                        }} style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: 20,
+                            borderWidth: 2,
+                            borderColor: "#ddd",
+                            marginRight: 10,
+                        }} />
                     </View>
                     <View style={tw`flex ml-2 flex-1`}>
                         <Text style={tw` text-lg font-bold`}>{player?.name}</Text>

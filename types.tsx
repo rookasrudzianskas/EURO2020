@@ -34,11 +34,11 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   NativeStackScreenProps<RootStackParamList>
 >;
 
-enum Positions {
-  FWD,
-  MID,
-  DEF,
-  GCK,
+export enum Positions {
+  FWD = "FWD",
+  MID = "MID",
+  DEF = "DEF",
+  GCK = "GCK",
 }
 
 export type Player = {
