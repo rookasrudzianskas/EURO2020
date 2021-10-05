@@ -8,7 +8,7 @@ import Field from "../components/Field/Field";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import TeamStats from "../components/TeamStats/TeamStats";
 import BottomSheet, {BottomSheetFlatList} from "@gorhom/bottom-sheet";
-import {useCallback, useMemo, useRef} from "react";
+import {Suspense, useCallback, useMemo, useRef} from "react";
 import PlayerListItem from "../components/PlayerListItem/PlayerListItem";
 import {players} from "../assets/data/players";
 import Filters from '../components/Filters/Filters';
@@ -87,7 +87,9 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'TabOne'>) => {
                     </TouchableOpacity>
                     </View>
                         {/*@ts-ignore*/}
+                    <Suspense fallback={<Text>Loading...</Text>}>
                         <PlayersList />
+                    </Suspense>
                 </View>
             </BottomSheet>
 
