@@ -7,6 +7,9 @@ import {useRecoilState} from "recoil";
 
 const PlayersList = () => {
     const [players, setPlayers] = useRecoilState(allPlayersState);
+
+    // setInterval(() => setPlayers([]), 5000);
+
     return (
         <>
             <BottomSheetFlatList data={players} renderItem={({item}) => (
