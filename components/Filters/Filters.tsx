@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from "react-native";
 import tw from "tailwind-react-native-classnames";
 
+
 const Filters = () => {
     return (
         <View style={tw`flex items-center`}>
