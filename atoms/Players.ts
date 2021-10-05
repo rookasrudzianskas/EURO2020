@@ -1,8 +1,27 @@
 import {atom, selector} from "recoil";
+import response from '../assets/data/response.json';
 
-export const allPlayersState = atom({
+const pos2pos = {
+    Attacker: 'FWD',
+    Defender: 'DEF',
+    Midfielder: 'MID',
+    Goalkeeper: 'GCK',
+};
+
+export const allPlayersState = selector({
     key: 'allPlayersState',
-    default: players,
+    get: async () => {
+        return response.response.map((entry) => ({
+            id: entry.player.id,
+            name: entry.player.name,
+            match: 'SDA',
+            price: 12_300_000,
+        // @ts-ignore
+            position: pos2pos[entry.statistics[0].game.position],
+            totalPoints: 29,
+
+        }))
+    }
 });
 
 export const positionFilterState = atom({
