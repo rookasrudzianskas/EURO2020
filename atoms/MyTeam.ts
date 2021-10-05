@@ -44,3 +44,17 @@ export const myPlayersByPosition = selector({
     }
 });
 
+
+export const numberOfPlayers = selector({
+    key: 'numberOfPlayers',
+    get: ({get}) => {
+        return get(myPlayersState).length;
+    }
+});
+
+export const valueOfPlayers = selector({
+    key: 'valueOfPlayers',
+    get: ({get}) => {
+        return get(myPlayersState).reduce((acc, player) => acc + player.price, 0);
+    }
+});

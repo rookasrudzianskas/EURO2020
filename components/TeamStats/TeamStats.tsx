@@ -1,8 +1,14 @@
 import React from 'react';
 import {View, Text} from "react-native";
 import tw from "tailwind-react-native-classnames";
+import {useRecoilValue} from "recoil";
+import {numberOfPlayers, valueOfPlayers} from "../../atoms/MyTeam";
 
 const TeamStats = () => {
+
+    const nofPlayers = useRecoilValue(numberOfPlayers);
+    const value = useRecoilValue(valueOfPlayers);
+
     return (
         <View style={[tw`flex flex-row bg-gray-100 mt-4 w-full px-48 py-5 rounded-md border-4 border-blue-400 shadow-lg`]}>
 
