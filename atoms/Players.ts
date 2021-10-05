@@ -51,6 +51,7 @@ export const filteredPlayers = selector({
     get: ({get}) => {
         const players = get(allPlayersState); // we get updates to this state
         const filters = get(positionFilterState); // we get updates to this state
+        //@ts-ignore
         return players.filter(player => filters.length === 0 || filters.includes(player.position)); // return the state with the player which exists in the filtered state
     //    if no filters selected, I see all of them
     }
