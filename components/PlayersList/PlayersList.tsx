@@ -6,7 +6,7 @@ import {allPlayersState} from "../../atoms/Players";
 import {useRecoilState} from "recoil";
 
 const PlayersList = () => {
-    const [players, setPlayers] = useRecoilState(allPlayersState);
+    const [players] = useRecoilState(allPlayersState);
 
     // setInterval(() => setPlayers([]), 5000);
 
