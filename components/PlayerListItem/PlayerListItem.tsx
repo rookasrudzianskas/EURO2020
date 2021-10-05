@@ -18,12 +18,22 @@ const PlayerListItem = ({player}: Props) => {
     const [myPlayers, setMyPlayers] = useRecoilState(MyPlayersState);
 
     const onPress = () => {
+        setMyPlayers((curPlayers) => {
+            if(myPlayers.some((p) => p.id === player.id)) {
+            //    remove the player
+                return curPlayers.filter(p => p.id !== player.id);
+            } else {
+                return [...curPlayers, player]
 
+            }
+        });
     }
+
+    const isSelected = myPlayers.some((p) => p.id === player.id);
 
 
     return (
-        <TouchableOpacity onPress={onPress} activeOpacity={0.8} style={tw`mx-6 border-b-2 border-gray-200 mb-3`}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.8} style={tw`${isSelected  ? 'bg-purple-500 pt-3' : 'bg-white pt-3'} mx-6 border-b-2 border-gray-200 mb-3`}>
             <View style={tw`mb-3`}>
                 <View style={tw`flex flex-row items-center`}>
                     <View style={tw`p-3 border-r-2 border-gray-200`}>
