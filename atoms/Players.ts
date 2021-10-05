@@ -14,8 +14,10 @@ export const positionFilterState = atom({
 export const filteredPlayers = selector({
     key: 'filterPlayers',
     get: ({get}) => {
-        const players = get(allPlayersState);
-        const filters = get(positionFilterState);
-        return players.filter(player => filters.includes(player.position));
+        const players = get(allPlayersState); // we get updates to this state
+        const filters = get(positionFilterState); // we get updates to this state
+        return players.filter(player => filters.length === 0 || filters.includes(player.position)); // return the state with the player which exists in the filtered state
+    //    if no filters selected, I see all of them
     }
+
 })
