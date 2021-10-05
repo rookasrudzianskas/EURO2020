@@ -17,7 +17,7 @@ const TeamStats = () => {
                     <Text style={tw`text-gray-500`}>Players</Text>
                 </View>
                 <View style={tw`-ml-40`}>
-                    <Text style={tw`text-gray-900 text-xl font-bold`}>0/ 15</Text>
+                    <Text style={tw`text-gray-900 text-xl font-bold`}>{nofPlayers} / 15</Text>
                 </View>
             </View>
             <View style={tw`flex`}>
@@ -25,7 +25,7 @@ const TeamStats = () => {
                     <Text style={tw`text-gray-500`}>Remaining</Text>
                 </View>
                 <View style={tw`-ml-20`}>
-                    <Text style={tw`text-gray-900 text-xl font-bold`}>$100m</Text>
+                    <Text style={tw`text-gray-900 text-xl font-bold`}>${((100_000_000 - value) / 100_000_000).toFixed(1)}m</Text>
                 </View>
             </View>
         </View>
