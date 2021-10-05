@@ -11,20 +11,16 @@ const pos2pos = {
 export const allPlayersState = selector({
     key: 'allPlayersState',
     get: async () => {
-        return new Promise((resolve, reject) => {
-           setTimeout(() => resolve(
-               response.response.map((entry) => ({
-                   id: entry.player.id,
-                   name: entry.player.name,
-                   match: 'SDA',
-                   price: 12300000,
-                   // @ts-ignore
-                   position: pos2pos[entry.statistics[0].games.position],
-                   totalPoints: 29,
-               }))
-           ), 1000);
-        });
+        return response.response.map((entry) => ({
+            id: entry.player.id,
+            name: entry.player.name,
+            match: 'SDA',
+            price: 12_300_000,
+        // @ts-ignore
+            position: pos2pos[entry.statistics[0].games.position],
+            totalPoints: 29,
 
+        }))
     }
 });
 
